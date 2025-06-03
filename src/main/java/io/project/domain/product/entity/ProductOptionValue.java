@@ -4,12 +4,15 @@ import io.project.domain.EntityTimestamp;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Getter
-@ToString
 @NoArgsConstructor
+@Table(
+        indexes = {
+                @Index(name = "idx_product_option_value", columnList = "productOptionId")
+        }
+)
 public class ProductOptionValue extends EntityTimestamp {
 
     public ProductOptionValue(long productOptionId, String productOptionString, int productOptionCost) {
