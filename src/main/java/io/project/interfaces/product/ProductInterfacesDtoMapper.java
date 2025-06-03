@@ -1,0 +1,54 @@
+package io.project.interfaces.product;
+
+import io.project.application.product.dto.ProductApplicationDto;
+import io.project.application.product.dto.ProductOptionApplicationDto;
+import org.mapstruct.Mapper;
+import org.springframework.data.domain.Pageable;
+
+@Mapper(componentModel = "spring")
+public interface ProductInterfacesDtoMapper {
+
+    ProductApplicationDto.InsertProductCriteria toInsertProductCriteria(ProductInterfacesDto.InsertProductRequest request);
+    ProductApplicationDto.InsertProductOptionCriteria toInsertProductOptionCriteria(ProductInterfacesDto.InsertProductOptionRequest request);
+    ProductApplicationDto.InsertProductOptionValueCriteria toInsertProductOptionValueCriteria(ProductInterfacesDto.InsertProductOptionValueRequest request);
+
+    ProductApplicationDto.UpdateProductCriteria toUpdateProductCriteria(ProductInterfacesDto.UpdateProductRequest request);
+    ProductApplicationDto.UpdateProductOptionCriteria toUpdateProductOptionCriteria(ProductInterfacesDto.UpdateProductOptionRequest request);
+    ProductApplicationDto.UpdateProductOptionValueCriteria toUpdateProductOptionValueCriteria(ProductInterfacesDto.UpdateProductOptionValueRequest request);
+
+    ProductInterfacesDto.InsertProductResponse toInsertProductResponse(ProductApplicationDto.InsertProductResult result);
+    ProductInterfacesDto.InsertProductOptionResponse toInsertProductOptionResponse(ProductApplicationDto.InsertProductOptionResult result);
+    ProductInterfacesDto.InsertProductOptionValueResponse toInsertProductOptionValueResponse(ProductApplicationDto.InsertProductOptionValueResult result);
+
+    ProductInterfacesDto.UpdateProductResponse toUpdateProductResult(ProductApplicationDto.UpdateProductResult result);
+
+    ProductInterfacesDto.GetProductResponse toGetProductResponse(ProductApplicationDto.GetProductResult result);
+    ProductInterfacesDto.GetProductOptionResponse toGetProductOptionResponse(ProductApplicationDto.GetProductOptionResult result);
+    ProductInterfacesDto.GetProductOptionValueResponse toGetProductOptionValueResponse(ProductApplicationDto.GetProductOptionValueResult result);
+
+    ProductApplicationDto.GetProductListCriteria toGetProductListCriteria(Pageable pageable);
+
+    ProductInterfacesDto.GetProductListResponse toGetProductListResult(ProductApplicationDto.GetProductListResult result);
+    ProductInterfacesDto.GetProductList toGetProductList(ProductApplicationDto.GetProductList result);
+
+    ProductApplicationDto.DeleteProductCriteria toDeleteProductCriteria(Long productId);
+
+    ProductOptionApplicationDto.InsertProductOptionCriteria toInsertOnlyProductOptionCriteria(ProductInterfacesDto.InsertOnlyProductOptionRequest request);
+    ProductOptionApplicationDto.InsertProductOptionValueCriteria toInsertOnlyProductOptionValueCriteria(ProductInterfacesDto.InsertOnlyProductOptionValueRequest request);
+
+    ProductInterfacesDto.InsertOnlyProductOptionResponse toInsertOnlyProductOptionResponse(ProductOptionApplicationDto.InsertProductOptionResult result);
+    ProductInterfacesDto.InsertOnlyProductOptionValueResponse toInsertOnlyProductOptionValueResponse(ProductOptionApplicationDto.InsertProductOptionValueResult result);
+
+    ProductOptionApplicationDto.GetProductOptionListCriteria toGetProductOptionListCriteria(Long productId);
+
+    ProductInterfacesDto.GetOnlyProductOptionResponse toGetOnlyProductOptionResponse(ProductOptionApplicationDto.GetProductOptionResult result);
+    ProductInterfacesDto.GetOnlyProductOptionValueResponse toGetOnlyProductOptionValueResponse(ProductOptionApplicationDto.GetProductOptionValueResult result);
+
+    ProductOptionApplicationDto.UpdateProductOptionCriteria toUpdateProductOptionCriteria(ProductInterfacesDto.UpdateOnlyProductOptionRequest request);
+    ProductOptionApplicationDto.UpdateProductOptionValueCriteria toUpdateProductOptionValueCriteria(ProductInterfacesDto.UpdateOnlyProductOptionValueRequest request);
+
+    ProductInterfacesDto.UpdateOnlyProductOptionResponse toUpdateOnlyProductOptionResponse(ProductOptionApplicationDto.UpdateProductOptionResult result);
+
+    ProductOptionApplicationDto.DeleteProductOptionCriteria toDeleteProductOptionCriteria(Long productId, Long productOptionId);
+
+}
